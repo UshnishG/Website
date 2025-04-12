@@ -1,51 +1,67 @@
 "use client";
 
-import React from "react";
-import { InfiniteMovingCards } from "./infinite-moving-cards"; // Updated import path
+import { useEffect, useRef } from "react";
 
-export default function Gallery() {
-  const images = [
-    "/Events/2.jpeg",
-    "/Events/3.jpeg",
-    "/Events/4.jpeg",
-    "/Events/5.jpeg",
-    "/Events/6.jpeg",
-    "/Events/7.jpeg",
-    "/Events/8.jpg",
-    "/Events/9.jpg",
-    "/Events/10.jpg",
-    "/Events/11.jpg",
-    "/Events/14.jpeg",
-    "/Events/21.jpg",
-    "/Events/22.jpg",
-    "/Events/23.jpg",
-    "/Events/24.jpeg",
-    "/Events/25.jpg",
-  ];
-  
-  // Split images into two rows
-  const firstRowImages = images.slice(0, Math.ceil(images.length/2));
-  const secondRowImages = images.slice(Math.ceil(images.length/2));
+const images = [
+  "/Events/2.jpeg",
+  "/Events/3.jpeg",
+  "/Events/4.jpeg",
+  "/Events/5.jpeg",
+  "/Events/6.jpeg",
+  "/Events/7.jpeg",
+  "/Events/8.jpg",
+  "/Events/9.jpg",
+  "/Events/10.jpg",
+  "/Events/11.jpg",
+  "/Events/14.jpeg",
+  "/Events/21.jpg",
+  "/Events/22.jpg",
+  "/Events/23.jpg",
+  "/Events/24.jpeg",
+  "/Events/25.jpg",
+];
+
+const Gallery = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scroll = () => {
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollLeft = 0;
+      } else {
+        scrollContainer.scrollLeft += 1;
+      }
+    };
+
+    const intervalId = setInterval(scroll, 30);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <section className="px-4 py-12 overflow-hidden">
-      <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-16">
-        <h1 className="text-[50px] sm:text-[100px] md:text-[120px] xl:text-[140px] font-extrabold tracking-tight text-gray-800 dark:text-gray-200">
-          GLIMPSE
-        </h1>
-        <h2 className="sr-only">Glimpse</h2>
-      </div>
-      <div className="space-y-6 sm:space-y-10">
-        {/* First Row */}
-        <div className="h-[15rem] sm:h-[20rem] md:h-[25rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-          <InfiniteMovingCards items={firstRowImages} direction="right" speed="normal" className="w-full" />
-        </div>
-
-        {/* Second Row */}
-        <div className="h-[15rem] sm:h-[20rem] md:h-[25rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-          <InfiniteMovingCards items={secondRowImages} direction="left" speed="normal" className="w-full" />
+    <section id="gallery" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center mb-12">Our Gallery</h2>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-hidden gap-4 py-4"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {[...images, ...images].map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`Gallery image ${index + 1}`}
+              className="h-64 w-96 object-cover rounded-lg flex-shrink-0"
+            />
+          ))}
         </div>
       </div>
     </section>
   );
-} 
+};
+
+export default Gallery;
