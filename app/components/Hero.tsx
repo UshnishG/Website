@@ -1,38 +1,83 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+"use client";
 
-const Hero = () => {
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import CircuitBoardAnimation from "./CircuitBoardAnimation";
+import { useTheme } from "./ThemeProvider";
+
+export default function Hero() {
+  const { isDarkMode } = useTheme();
+  
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-4 p-4 opacity-10">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div key={i} className="h-full w-full bg-primary/20 rounded-lg"></div>
-        ))}
-      </div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60 mb-6">
-          Futurix Association
-        </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Shaping tomorrow's leaders through innovation, creativity, and technology
-        </p>
-        <div className="flex justify-center gap-4">
-          <Link
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* Circuit Board Animation Background */}
+      <CircuitBoardAnimation />
+
+      {/* Overlay Content */}
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-8 text-center">
+        {/* Logo & Title Together */}
+        <motion.div
+          className="flex flex-col items-center gap-2 pt-6 sm:pt-0 max-w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Image
+            src="/logoo.png"
+            alt="Futurix Logo"
+            width={500}
+            height={500}
+            className="w-[250px] h-auto sm:w-[350px] md:w-[400px] lg:w-[500px]"
+            priority
+          />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide text-white mt-2 sm:mt-4">
+            OFFICIAL C.TECH STUDENT ASSOCIATION
+          </h2>
+        </motion.div>
+
+        {/* Social Icons */}
+        <motion.div
+          className="mt-4 sm:mt-6 flex space-x-6 sm:space-x-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <a
+            href="https://www.instagram.com/futurix.ctech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-pink-500 hover:scale-110 transition-transform duration-300"
           >
-            Join Us <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-          <Link
-            href="#team"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors"
+            <FaInstagram size={30} className="sm:w-8 sm:h-8 md:w-10 md:h-10" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/futurix-srmist"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:scale-110 transition-transform duration-300"
           >
-            Meet the Team
-          </Link>
-        </div>
+            <FaLinkedin size={30} className="sm:w-8 sm:h-8 md:w-10 md:h-10" />
+          </a>
+        </motion.div>
+
+        {/* About Us Card */}
+        <motion.div
+          className={`mt-8 sm:mt-12 md:mt-16 p-5 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl max-w-[95%] sm:max-w-xl md:max-w-2xl transition-all duration-500 hover:scale-105 ${
+            isDarkMode 
+              ? "bg-gray-900 bg-opacity-70 backdrop-blur-lg shadow-xl shadow-purple-800 hover:shadow-purple-700 text-white" 
+              : "bg-white bg-opacity-10 backdrop-blur-lg shadow-xl shadow-purple-500 hover:shadow-purple-400 text-white"
+          }`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold ${isDarkMode ? "text-purple-300" : "text-white"}`}>About Us</h3>
+          <p className={`mt-2 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed ${isDarkMode ? "text-gray-300" : "text-white"}`}>
+            Futurix is the official student association of C.Tech, dedicated to fostering innovation, collaboration, and excellence in technology. We empower students through hands-on projects, hackathons, and networking opportunities with industry leaders. Our mission is to create a vibrant tech-driven community that shapes the future.
+          </p>
+        </motion.div>
       </div>
     </div>
   );
-};
-
-export default Hero;
+} 
