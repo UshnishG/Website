@@ -11,17 +11,12 @@ export default function Gallery() {
     "/Events/5.JPEG",
     "/Events/6.JPEG",
     "/Events/7.JPEG",
-    "/Events/8.JPG",
     "/Events/9.JPG",
     "/Events/10.JPG",
     "/Events/11.JPG",
     "/Events/14.JPEG",
-    "/Events/21.JPG",
-    "/Events/22.JPG",
-    "/Events/23.JPG",
-    "/Events/24.JPEG",
-    "/Events/25.JPG",
-  ];
+    "/Events/24.JPEG"
+    ];
   
   // Split images into two rows
   const firstRowImages = images.slice(0, Math.ceil(images.length/2));
