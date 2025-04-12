@@ -67,7 +67,6 @@ export default function Contact() {
         <h1 className="text-[50px] sm:text-[100px] md:text-[120px] xl:text-[140px] font-extrabold tracking-tight text-gray-800 dark:text-gray-200">
           CONTACT
         </h1>
-        <h2 className="sr-only">Contact</h2>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 max-w-lg">

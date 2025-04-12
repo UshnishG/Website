@@ -28,7 +28,6 @@ export default function Gallery() {
         <h1 className="text-[50px] sm:text-[100px] md:text-[120px] xl:text-[140px] font-extrabold tracking-tight text-gray-800 dark:text-gray-200">
           GLIMPSE
         </h1>
-        <h2 className="sr-only">Glimpse</h2>
       </div>
       <div className="space-y-6 sm:space-y-10">
         {/* First Row */}
