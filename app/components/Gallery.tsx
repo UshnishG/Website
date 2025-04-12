@@ -3,23 +3,24 @@
 import { useEffect, useRef } from "react";
 
 const images = [
-  "/Events/2.jpeg",
-  "/Events/3.jpeg",
-  "/Events/4.jpeg",
-  "/Events/5.jpeg",
-  "/Events/6.jpeg",
-  "/Events/7.jpeg",
-  "/Events/8.jpg",
-  "/Events/9.jpg",
-  "/Events/10.jpg",
-  "/Events/11.jpg",
-  "/Events/14.jpeg",
-  "/Events/21.jpg",
-  "/Events/22.jpg",
-  "/Events/23.jpg",
-  "/Events/24.jpeg",
-  "/Events/25.jpg",
+  "/Events/2.JPEG",
+  "/Events/3.JPEG",
+  "/Events/4.JPEG",
+  "/Events/5.JPEG",
+  "/Events/6.JPEG",
+  "/Events/7.JPEG",
+  "/Events/8.JPG",
+  "/Events/9.JPG",
+  "/Events/10.JPG",
+  "/Events/11.JPG",
+  "/Events/14.JPEG",
+  "/Events/21.JPG",
+  "/Events/22.JPG",
+  "/Events/23.JPG",
+  "/Events/24.JPEG",
+  "/Events/25.JPG",
 ];
+
 
 const Gallery = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
