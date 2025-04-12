@@ -44,9 +44,7 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-[50px] sm:text-[100px] md:text-[120px] xl:text-[140px] font-extrabold tracking-tight text-gray-800 dark:text-gray-200">
-          CONTACT
-        </h1>
+      <h1 className="text-[50px] sm:text-[100px] md:text-[120px] xl:text-[140px] font-extrabold tracking-tight text-gray-800 dark:text-gray-200">CONTACT</h1>
         <div
           ref={scrollRef}
           className="flex overflow-x-hidden gap-4 py-4"
