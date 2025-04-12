@@ -1,0 +1,31 @@
+{
+  "team": [
+    {
+      "name": "Piyush Raj",
+      "role": "Creative",
+      "domain": "Creatives",
+      "instagram": "https://www.instagram.com/piyushraj386/",
+      "linkedin": "https://www.linkedin.com/in/-piyush-raj/",
+      "coreMember": false,
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop"
+    },
+    {
+      "name": "Sarah Johnson",
+      "role": "President",
+      "domain": "Leadership",
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com",
+      "coreMember": true,
+      "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop"
+    },
+    {
+      "name": "Alex Chen",
+      "role": "Tech Lead",
+      "domain": "Technology",
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com",
+      "coreMember": true,
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop"
+    }
+  ]
+}
